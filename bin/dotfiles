@@ -1,0 +1,156 @@
+#!/usr/bin/env bash
+
+echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
+
+Usage: $(basename "$0")
+
+See the README for documentation.
+https://github.com/cowboy/dotfiles
+
+Copyright (c) 2012 "Cowboy" Ben Alman
+Licensed under the MIT license.
+http://benalman.com/about/license/
+HELP
+  exit
+fi
+
+################################################################################
+# Set vars.
+# All this variables must be set for correct execution
+
+#  Calc path to dotfiles folder based on the relative position of the dotfiles
+#+ executable
+root_path=$(dirname $(dirname $0))
+
+# dotfiles main folder
+dot_folder=$root_path
+# dotfiles action files folder
+dot_files="$dot_folder/files"
+# dotfiles submodules folder
+dot_libs="$dot_folder/libs"
+# dotfiles library folder
+dot_lib="$dot_folder/libs/dotfiles"
+# dotfiles cache folder
+dot_cache="$dot_folder/caches"
+
+# Enough with the functions, let's do stuff.
+
+################################################################################
+# Initialize.
+
+if [[ ! -d ~/.dotfiles ]]; then
+  new_dotfiles_install=1
+
+  # ~/.dotfiles doesn't exist? Clone it!
+  echo "Dotfiles not found. Downloading..."
+
+  # git clone --recursive git://github.com/cowboy/dotfiles.git ~/.dotfiles
+
+  cd ~/.dotfiles
+else
+  # Make sure we have the latest files.
+  echo "Dotfiles found. Updating..."
+  cd ~/.dotfiles
+
+  # git pull
+  # git submodule update --init --recursive --quiet
+fi
+
+source $dot_lib/doers.sh
+source $dot_lib/logging.sh
+source $dot_lib/misc.sh
+
+################################################################################
+# Test for prerequisites
+source $dot_lib/test_for.sh
+
+test_for_var '$dot_folder' $dot_folder
+test_for_var '$dot_files' $dot_files
+test_for_var '$dot_lib' $dot_lib
+test_for_var '$dot_cache' $dot_cache
+
+
+test_for_command 'gcc'
+
+function git_installer() {
+  sudo apt-get -qq install git-core
+  return $?
+}
+test_for_command 'git'
+
+################################################################################
+# Update existing sudo time stamp if set, otherwise do nothing.
+e_header "Update sudo timestamp"
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+e_ok
+
+################################################################################
+# Utilities, helpers.
+e_header "Source helpers"
+source $dot_files/source/10_misc.sh
+e_ok
+
+################################################################################
+# Add binaries into the path
+e_header "Add bin to PATH"
+
+PATH=$dot_folder/bin:$PATH
+export PATH
+
+e_ok
+
+################################################################################
+# Tweak file globbing.
+e_header "Tweak file globbing"
+
+shopt -s dotglob
+shopt -s nullglob
+
+e_ok
+
+################################################################################
+# Create caches directory, if it doesn't already exist.
+source $dot_lib/cache.sh
+
+create_cache_folder
+
+################################################################################
+# If backups are needed, this is where they'll go.
+e_header "Preparing backup"
+
+date=$(date "+%Y_%m_%d-%H_%M_%S")
+backup_dir="$dot_folder/backups/$date/"
+backup=
+
+e_ok
+
+################################################################################
+# Execute code for each file in these subdirectories.
+e_header "Executing actions..."
+
+do_stuff "init"
+do_stuff "copy"
+do_stuff "link"
+do_stuff "zshplugins"
+do_stuff "closure"
+
+################################################################################
+# Alert if backups were made.
+if [[ "$backup" ]]; then
+  echo ""
+  e_success "Backups were moved to ~/${backup_dir#$HOME/}"
+fi
+
+################################################################################
+# Lest I forget to do a few additional things...
+new_dotfiles_install=1
+if [[ "$new_dotfiles_install" && -e "$dot_folder/conf/first_time.sh" ]]; then
+  e_header "First-Time Reminders"
+  source "$dot_folder/conf/first_time.sh"
+fi
+
+################################################################################
+# All done!
+e_header "All done!"
