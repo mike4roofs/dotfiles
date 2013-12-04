@@ -16,6 +16,21 @@ HELP
   exit
 fi
 
+if [[ "$1" == "install" ]]; then
+  echo "Welcome! You are going to install endorama/dotfiles."
+  echo "Download is starting..."
+
+  if [[ ! -d ~/.dotfiles ]]; then
+    git clone --recursive git://github.com/cowboy/dotfiles.git ~/.dotfiles
+  else
+    echo "A ~/.dotfiles folder already exists, aborting."
+  fi
+
+  exit
+fi
+
+
+
 ################################################################################
 # Set vars.
 # All this variables must be set for correct execution
