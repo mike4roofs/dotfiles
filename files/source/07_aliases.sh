@@ -8,7 +8,6 @@ alias zshrc="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias gitconfig="vim ~/.gitconfig"
 
-
 # SEE PLUGIN # http://apalan.cat/blog/2011/07/24/zsh-no-matches-found/ # alias rake="noglob rake"
 
 # processing

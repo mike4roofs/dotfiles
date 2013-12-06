@@ -12,7 +12,6 @@ plugins=(
   sublime web-search wp-cli
 )
 
-
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Contributed codes
