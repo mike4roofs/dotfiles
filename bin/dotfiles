@@ -83,9 +83,9 @@ source $dot_lib/test_for.sh
 
 test_for_var '$dot_folder' $dot_folder
 test_for_var '$dot_files' $dot_files
+test_for_var '$dot_libs' $dot_libs
 test_for_var '$dot_lib' $dot_lib
 test_for_var '$dot_cache' $dot_cache
-
 
 test_for_command 'gcc'
 
