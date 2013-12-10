@@ -7,7 +7,7 @@ function zshplugins_do() {
   e_success "Linking plugin $1"
 
   plugin=$dot_files/zshplugins/$1
-  link_folder=$dot_folder/libs/.oh-my-zsh/custom/plugins/
+  link_folder=$dot_folder/libs/oh-my-zsh/custom/plugins/
 
   ln -sf $plugin $link_folder
 }
