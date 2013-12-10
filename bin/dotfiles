@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
+echo 'Dotfiles - "endorama" Edoardo Tenani - http://about.me/edoardo.tenani'
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 
@@ -9,9 +9,9 @@ Usage: $(basename "$0")
 See the README for documentation.
 https://github.com/endorama/dotfiles
 
-Copyright (c) 2012 "Cowboy" Ben Alman
+Copyright (c) 2012 "endorama" Edoardo Tenani
 Licensed under the MIT license.
-http://benalman.com/about/license/
+http://endorama.mit-license.org/
 HELP
   exit
 fi
@@ -28,7 +28,6 @@ if [[ "$1" == "install" ]]; then
 
   exit
 fi
-
 
 
 ################################################################################
