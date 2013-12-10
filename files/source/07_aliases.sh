@@ -19,6 +19,7 @@ alias hub="nocorrect hub"
 alias git="nocorrect git"
 alias ino="nocorrect ino"
 alias ssh="nocorrect ssh"
+alias trash="nocorrect trash"
 
 # ls alias
 alias ls="ls --color=auto"
