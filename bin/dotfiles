@@ -61,7 +61,7 @@ if [[ ! -d ~/.dotfiles ]]; then
   # ~/.dotfiles doesn't exist? Clone it!
   echo "Dotfiles not found. Downloading..."
 
-  # git clone --recursive git://github.com/cowboy/dotfiles.git ~/.dotfiles
+  git clone --recursive git://github.com/endorama/dotfiles.git ~/.dotfiles
 
   cd ~/.dotfiles
 else
@@ -69,8 +69,8 @@ else
   echo "Dotfiles found. Updating..."
   cd ~/.dotfiles
 
-  # git pull
-  # git submodule update --init --recursive --quiet
+  git pull
+  git submodule update --init --recursive --quiet
 fi
 
 source $dot_lib/doers.sh
