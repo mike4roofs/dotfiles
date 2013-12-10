@@ -11,7 +11,7 @@ function copy_test() {
 
 function copy_do() {
   e_success "Copying ~/$1"
-  # cp "$2" ~/
+  cp "$2" ~/
 }
 
 function copy_footer() { e_success "Completed"; }

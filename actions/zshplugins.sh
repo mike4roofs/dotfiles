@@ -9,7 +9,7 @@ function zshplugins_do() {
   plugin=$dot_files/zshplugins/$1
   link_folder=$dot_folder/libs/.oh-my-zsh/custom/plugins/
 
-  # ln -sf $plugin $link_folder
+  ln -sf $plugin $link_folder
 }
 
 function zshplugins_footer() { e_success "Completed"; }

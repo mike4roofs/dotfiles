@@ -13,7 +13,7 @@ function link_do() {
   plugin=$dot_files/link/$1
   link_folder=~/
 
-  # ln -sf $plugin $link_folder
+  ln -sf $plugin $link_folder
 }
 
 function link_footer() { e_success "Completed"; }
