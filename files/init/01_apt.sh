@@ -1,6 +1,6 @@
 # Update APT.
 if [[ $new_dotfiles_install -eq 1 ]]; then
-  e_header "Updating APT"
+  e_header "Updating APT (this will take some time)"
   sudo apt-get -qq update
   sudo apt-get -qq dist-upgrade
 fi
