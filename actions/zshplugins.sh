@@ -13,7 +13,7 @@ function zshplugins_do() {
     mkdir $link_folder
   fi
 
-  if [[ ! -d $link_folder ]]; then
+  if [[ -d $link_folder ]]; then
     ln -sf $plugin $link_folder
   else
     e_error "Can't create $link_folder"
