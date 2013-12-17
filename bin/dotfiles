@@ -159,8 +159,7 @@ if [[ "$backup" ]]; then
 fi
 
 ################################################################################
-# Lest I forget to do a few additional things...
-new_dotfiles_install=1
+# Least I forget to do a few additional things...
 if [[ "$new_dotfiles_install" && -e "$dot_folder/conf/first_time.sh" ]]; then
   e_header "First-Time Reminders"
   source "$dot_folder/conf/first_time.sh"

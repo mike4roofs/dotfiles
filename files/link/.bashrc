@@ -6,9 +6,9 @@ export PATH
 function src() {
   local file
   if [[ "$1" ]]; then
-    source "$HOME/.dotfiles/source/$1.sh"
+    source "$HOME/.dotfiles/files/source/$1.sh"
   else
-    for file in ~/.dotfiles/source/*; do
+    for file in $HOME/.dotfiles/files/source/*; do
       source "$file"
     done
   fi
@@ -16,7 +16,7 @@ function src() {
 
 # Run dotfiles script, then source.
 function dotfiles() {
-  ~/.dotfiles/bin/dotfiles "$@" && src
+  $HOME/.dotfiles/bin/dotfiles "$@" && src
 }
 
 src
