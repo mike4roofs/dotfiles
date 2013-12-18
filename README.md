@@ -86,13 +86,17 @@ A whole bunch of things will be installed, but _only_ if they aren't already.
 ├── conf                    all files used for dotfiles execution
 │   └── first_time.sh         this file will be run ( if exists ) only on first execution
 ├── files                 all files used by action. By default all files inside the same folder are sourced
+│   ├── appmanager          put appmanager scripts here
 │   ├── closure             put closure scripts here
 │   ├── copy                put files to be copied here
 │   ├── init                put initialization scripts here
 │   ├── link                put files to be linked here 
 │   └── source              put files to be sources ( every shell session ) here
 └── libs                  files to store git submodules and dotfiles lib files
-    └── dotfiles            don't touch this! All dotfiles helpers are here :)
+    ├── appmanager          don't touch this! All appmanager helpers are here
+    ├── dotfiles            don't touch this! All dotfiles helpers are here
+    └── shared              don't touch this! All shared helpers are here
+
 
 Inside files/*.sh you have some variable available for easy management:
 
@@ -140,6 +144,28 @@ In addition to the aforementioned dotfiles script, there are a few other bash sc
 
 This includes some git submodule that will be installed into libs folder.
 
+## Appmanager
+In case you need to install custom applications from source ( chrome canary, phantomjs ) or for which you were using the command line, there is a easy way to do that.
+
+Using the `bin/appmanager` script you can install, uninstall, run or upgrade application using custom defined Bash scripts.
+
+To add a new script, drop it in `files/appmanager`, calling it `application-name.sh`. Simply as that.
+
+Now you can run `appmanager list` and your script will be shown.
+
+Inside the `application-name.sh` you can define 4 functions ( are all optionals ):
+
+- {application-name}_install: This function will be executed when you run `appmanager install application-name`
+- {application-name}_run: This function will be executed when you run `appmanager run application-name`
+- {application-name}_uninstall: This function will be executed when you run `appmanager uninstall application-name`
+- {application-name}_upgrade: This function will be executed when you run `appmanager upgrade application-name`
+
+Inside this function you have 3 variables related to your application:
+
+- appmng_bin_dir="/opt/bin": the destination for binaries. `/opt/bin` is included in PATH, so a simply symlink here are you're good to go
+- appmng_dest_dir="/opt": the destination folder for your application
+- appmng_app_dir="$appmng_dest_dir/{application-name}": the folder in which your application will be installed. `appmanager` automatically test for existance and create this folder if it doesn't
+
 ## Libs
 If you need to include a third party library ( in the form of a git repository ) you can use the .gitsubmodules file to add it and will be automatically cloned on install and updated.
 
@@ -149,7 +175,7 @@ If you need to include a third party library ( in the form of a git repository )
 <https://github.com/cowboy/dotfiles>
 (and 4+ years of accumulated crap)
 
-Eavily inpired by [Ben Alman dotfiles](https://github.com/cowboy/dotfiles).
+Heavily inpired by [Ben Alman dotfiles](https://github.com/cowboy/dotfiles).
 
 ## License
 Copyright (c) 2013 "Endorama" Edoardo Tenani

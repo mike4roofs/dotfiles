@@ -1,0 +1,120 @@
+#! /bin/sh
+
+APPLICATION="appmanager"
+VERSION="0.0.1"
+
+# http://stackoverflow.com/a/3182519/715002
+USAGE="Usage: $APPLICATION [-hv] command [args]
+
+  Commands:
+    install [application]
+                  Install the specified application
+    list          List all available applications
+    run [application]
+                  Run the specified application
+    uninstall [application]
+                  Uninstall the specified application
+    upgrade [application]
+                  Get the latest copy of the application
+
+  Options:
+        -h        Print this help screen
+        -v        Print version
+
+Version $VERSION"
+
+function usage() {
+  echo "$USAGE" >&2
+}
+
+################################################################################
+# Set vars.
+# All this variables must be set for correct execution
+
+#  Calc path to dotfiles folder based on the relative position of the dotfiles
+#+ executable
+root_path=$(dirname $(dirname $0))
+# root_path="$HOME/.dotfiles"
+
+# dotfiles main folder
+dot_folder=$root_path
+# dotfiles action files folder
+dot_files="$dot_folder/files"
+# dotfiles submodules folder
+dot_libs="$dot_folder/libs"
+# dotfiles library folder
+dot_lib="$dot_folder/libs/appmanager"
+# dotfiles cache folder
+dot_cache="$dot_folder/caches"
+
+# all available applications, will be filled afterwards
+appmng_applications=()
+# application bin folder. Is included in the PATH from .bashrc and .zshrc
+appmng_bin_dir="/opt/bin"
+# destination folder in which application will be installed
+appmng_dest_dir="/opt"
+
+# Enough with the settings, let's do stuff.
+
+# Parse command line options.
+while getopts hv OPT; do
+  case "$OPT" in
+    h)
+      usage
+      exit 0
+      ;;
+    v)
+      echo "$APPLICATION - Version $VERSION"
+      exit 0
+      ;;
+    \?)
+      # getopts issues an error message
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+# Remove the switches we parsed above.
+shift `expr $OPTIND - 1`
+
+# We want at least one non-option argument. 
+if [ $# -eq 0 ]; then
+  usage
+  exit 1
+fi
+
+source $dot_lib/applications.sh
+source $dot_libs/shared/logging.sh
+
+# Access additional arguments as usual through 
+# variables $@, $*, $1, $2, etc. or using this loop:
+
+[[ -d $appmng_bin_dir ]] || mkdir $appmng_bin_dir
+get_available_applications
+
+if [[ $1 == 'install' ]]; then
+  [[ $2 == '' ]] && e_abort 'specify app' 127
+  [[ $(is_application $2) -lt 1 ]] && e_abort 'Application is not valid' 127
+  source_applications
+  appmng_app_dir="$appmng_dest_dir/$2"
+  
+  install_application $2
+  
+# elif [[ $1 == 'run' ]]; then
+elif [[ $1 == 'list' ]]; then
+  show_applications
+elif [[ $1 == 'uninstall' ]]; then
+  [[ $2 == '' ]] && e_abort 'specify app' 127
+  [[ $(is_application $2) -lt 1 ]] && e_abort 'Application is not valid' 127
+  source_applications
+  appmng_app_dir="$appmng_dest_dir/$2"
+
+  uninstall_application $2
+
+# elif [[ $1 == 'upgrade' ]]; then
+fi
+
+
+
+# EOF
