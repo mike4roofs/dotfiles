@@ -9,7 +9,7 @@ Usage: $(basename "$0")
 See the README for documentation.
 https://github.com/endorama/dotfiles
 
-Copyright (c) 2012 "endorama" Edoardo Tenani
+Copyright (c) 2013 "endorama" Edoardo Tenani
 Licensed under the MIT license.
 http://endorama.mit-license.org/
 HELP
@@ -74,7 +74,7 @@ else
 fi
 
 source $dot_lib/doers.sh
-source $dot_lib/logging.sh
+source $dot_libs/shared/logging.sh
 source $dot_lib/misc.sh
 
 ################################################################################
