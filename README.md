@@ -6,9 +6,9 @@ Ubuntu dotfiles.
 
 http://dotfiles.github.io/
 
-This project aspire to be a "framework" for managing dotfiles.
+This project aspire to be a "framework" for managing my personal dotfiles.
 
-This project is eavily inspired by the [Ben Alman](https://github.com/cowboy/dotfiles) dotfiles ( which I found awesome! ).
+This project is heavily inspired by the [Ben Alman](https://github.com/cowboy/dotfiles) dotfiles ( which I found awesome! ).
 
 ## What, exactly, does the "dotfiles" command do?
 
@@ -168,7 +168,7 @@ Inside this function you have 3 variables related to your application:
 - appmng_cli_args: extra command line assed to the run method
 
 ## Libs
-If you need to include a third party library ( in the form of a git repository ) you can use the .gitsubmodules file to add it and will be automatically cloned on install and updated.
+If you need to include a third party library ( in the form of a git repository ) you can use Git submodules.
 
 ## Inspiration
 <https://github.com/gf3/dotfiles>  
