@@ -67,3 +67,7 @@ function uninstall_application() {
     exit 1
   fi
 }
+
+function upgrade_application() {
+  _do_action 'upgrade' $1
+}

@@ -128,11 +128,16 @@ elif [[ $1 == 'uninstall' ]]; then
 
   uninstall_application $2
 
-# elif [[ $1 == 'upgrade' ]]; then
+elif [[ $1 == 'upgrade' ]]; then
+  [[ $2 == '' ]] && e_abort 'specify app' 127
+  [[ $(is_application $2) -lt 1 ]] && e_abort 'Application is not valid' 127
+  source_applications
+  appmng_app_dir="$appmng_dest_dir/$2"
+
+  upgrade_application $2
+
 else
   usage
 fi
-
-
 
 # EOF
