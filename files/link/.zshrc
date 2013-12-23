@@ -13,7 +13,7 @@ export PATH
 function src() {
   local file
   
-  if [[ "$1" ]]; then
+  if [[ -n "$1" ]]; then
     source "$HOME/.dotfiles/files/source/$1.sh"
   else
     for file in $HOME/.dotfiles/files/source/*; do
