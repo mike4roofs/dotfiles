@@ -29,32 +29,12 @@ function usage() {
 
 ################################################################################
 # Set vars.
-# All this variables must be set for correct execution
 
-#  Calc path to dotfiles folder based on the relative position of the dotfiles
-#+ executable
-root_path=$(dirname $(dirname $0))
-# root_path="$HOME/.dotfiles"
+# source $(dirname $(dirname $0))/libs/dotfiles/vars.sh
+source $HOME/.dotfiles/libs/dotfiles/vars.sh
 
-# dotfiles main folder
-dot_folder=$root_path
-# dotfiles action files folder
-dot_files="$dot_folder/files"
-# dotfiles submodules folder
-dot_libs="$dot_folder/libs"
-# dotfiles library folder
-dot_lib="$dot_folder/libs/appmanager"
-# dotfiles cache folder
-dot_cache="$dot_folder/caches"
-
-# all available applications, will be filled afterwards
-appmng_applications=()
-# application bin folder. Is included in the PATH from .bashrc and .zshrc
-appmng_bin_dir="/opt/bin"
-# destination folder in which application will be installed
-appmng_dest_dir="/opt"
-# store command line arguments for passing them to run() function
-appmng_cli_args=($@)
+echo $dot_lib
+source $dot_lib/vars.sh
 
 # Enough with the settings, let's do stuff.
 
