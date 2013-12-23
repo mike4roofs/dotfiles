@@ -35,16 +35,8 @@ Note:
 
 ### Actual Installation
 
-Download:
-
 ```sh
-$ wget https://raw.github.com/endorama/dotfiles/master/bin/dotfiles && bash ./dotfiles install
-```
-
-After download, to properly install dotfiles and execute all actions:
-
-```sh
-$ bash .dotfiles/bin/dotfiles
+$ curl -sSL https://raw.github.com/endorama/dotfiles/master/install.sh | bash
 ```
 
 After this the .dotfiles/bin folder will be included in your PATH, so simply running `dotfiles` will update dotfiles.
