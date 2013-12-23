@@ -50,6 +50,10 @@ function install_application() {
   _do_action 'install' $1
 }
 
+function run_application() {
+  _do_action 'run' $1
+}
+
 function uninstall_application() {
   _do_action 'uninstall' $1
 }

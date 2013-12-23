@@ -165,6 +165,7 @@ Inside this function you have 3 variables related to your application:
 - appmng_bin_dir="/opt/bin": the destination for binaries. `/opt/bin` is included in PATH, so a simply symlink here are you're good to go
 - appmng_dest_dir="/opt": the destination folder for your application
 - appmng_app_dir="$appmng_dest_dir/{application-name}": the folder in which your application will be installed. `appmanager` automatically test for existance and create this folder if it doesn't
+- appmng_cli_args: extra command line assed to the run method
 
 ## Libs
 If you need to include a third party library ( in the form of a git repository ) you can use the .gitsubmodules file to add it and will be automatically cloned on install and updated.
