@@ -134,6 +134,7 @@ do_stuff "init"
 do_stuff "copy"
 do_stuff "link"
 do_stuff "zshplugins"
+do_stuff "zshcontribs"
 do_stuff "closure"
 
 ################################################################################
