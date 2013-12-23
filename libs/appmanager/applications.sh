@@ -18,19 +18,26 @@ function source_applications() {
   done
 }
 
+# $1 => application name to be escaped
+function escape_name() {
+  local name; name=$1
+
+  echo "${name//-/_}"
+}
+
 function _do_action() {
-  local action application
-  action=$1
-  application=$2
+  local action=$1
+  local application=$(escape_name $2)
+  local function_name="${application}_$action"
 
   # check for action availability and return if none
-  if [[ ! $(declare -f "$2_$1") ]]; then
+  if [[ ! $(declare -f "$function_name") ]]; then
     echo ""
-    e_warn "$1 action for $2 is not defined"
+    e_warn "$action action for $application is not defined"
     return
   else
     [[ -d $appmng_app_dir ]] || mkdir $appmng_app_dir
-    "$2_$1" "$base" "$file"
+    "$function_name" "$base" "$file"
   fi
 }
 
