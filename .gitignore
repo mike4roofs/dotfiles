@@ -5,9 +5,7 @@ caches/
 backups/
 
 # ignore sensible ssh files
-link/.ssh/authorized_keys
-link/.ssh/id_*
-link/.ssh/known_hosts
+files/link/.ssh/*
 
 # ignore files with LOCAL in the name
 *LOCAL*
