@@ -56,11 +56,11 @@ function do_stuff() {
         # Set backup flag, so a nice message can be shown at the end.
         backup=1
         
-        # # Create backup dir if it doesn't already exist.
-        # [[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
+        # Create backup dir if it doesn't already exist.
+        [[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
         
-        # # Backup file / link / whatever.
-        # mv "$dest" "$backup_dir"
+        # Backup file / link / whatever.
+        mv "$dest" "$backup_dir"
       
       fi
     fi
