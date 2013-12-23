@@ -33,7 +33,6 @@ function usage() {
 # source $(dirname $(dirname $0))/libs/dotfiles/vars.sh
 source $HOME/.dotfiles/libs/dotfiles/vars.sh
 
-echo $dot_lib
 source $dot_lib/vars.sh
 
 # Enough with the settings, let's do stuff.
