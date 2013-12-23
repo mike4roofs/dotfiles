@@ -113,6 +113,8 @@ elif [[ $1 == 'uninstall' ]]; then
   uninstall_application $2
 
 # elif [[ $1 == 'upgrade' ]]; then
+else
+  usage
 fi
 
 
