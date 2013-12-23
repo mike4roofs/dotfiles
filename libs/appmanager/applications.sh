@@ -60,12 +60,11 @@ function uninstall_application() {
   REPLY="N"
   read -n 1 -p "Please confirm [y/N]: "
   echo ""
-  
+
   if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     _do_action 'uninstall' $1
   else
-    e_abort "Uninstall not confirmed"
-    exit 1
+    e_abort "Uninstall not confirmed" 1
   fi
 }
 
