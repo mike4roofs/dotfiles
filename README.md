@@ -81,6 +81,7 @@ A whole bunch of things will be installed, but _only_ if they aren't already.
 
 ## The folder structure
 
+```
 ├── action                all action to be performed
 ├── bin                     executable that will be available
 ├── conf                    all files used for dotfiles execution
@@ -96,37 +97,37 @@ A whole bunch of things will be installed, but _only_ if they aren't already.
     ├── appmanager          don't touch this! All appmanager helpers are here
     ├── dotfiles            don't touch this! All dotfiles helpers are here
     └── shared              don't touch this! All shared helpers are here
-
+```
 
 Inside files/*.sh you have some variable available for easy management:
 
-* dot_folder: the root of the dotfiles repository
-* dot_files ($dot_folder/files): the files folder
-* dot_libs ($dot_folder/libs): the libs folder
-* dot_cache ($dot_folder/caches): the cache folder
+* `dot_folder`: the root of the dotfiles repository
+* `dot_files` ($dot_folder/files): the files folder
+* `dot_libs` ($dot_folder/libs): the libs folder
+* `dot_cache` ($dot_folder/caches): the cache folder
 
 There are also a set of output helpers.  
 To each method you can pass a string that will be printed:
 
-* e_header(): print a header line ( bold blue )
-* e_success(): print a success line ( prepend a green tick )
-* e_error(): print an error line ( prepend a red cross )
-* e_warn(): print a warning line ( a bold yellow line )
-* e_arrow(): print a progress line ( prepend a yellow arrow )
+* `e_header()`: print a header line ( bold blue )
+* `e_success()`: print a success line ( prepend a green tick )
+* `e_error()`: print an error line ( prepend a red cross )
+* `e_warn()`: print a warning line ( a bold yellow line )
+* `e_arrow()`: print a progress line ( prepend a yellow arrow )
 
-* e_ok(): utility function to print a e_success with text "ok"  
-* e_abort(): print error and exit with status code  
+* `e_ok()`: utility function to print a e_success with text "ok"  
+* `e_abort()`: print error and exit with status code  
   $1 => error message, $2 => exit code
-* e_return(): print warning and return  
+* `e_return()`: print warning and return  
   $1 => warn message
 
 Also, you can use 2 function to test for command or variable existance:
 
-* test_for_command: test of existance of given command  
+* `test_for_command()`: test of existance of given command  
   $1 => command human name  
   $2 => command executable ( if none $1 will be used )  
   Will execute a $1_installer function if command is not found  
-* test_for_var(): test of existance of given variable  
+* `test_for_var()`: test of existance of given variable  
   $1 => variable name  
   $2 => variable to be checked  
 
@@ -155,17 +156,17 @@ Now you can run `appmanager list` and your script will be shown.
 
 Inside the `application-name.sh` you can define 4 functions ( are all optionals ):
 
-- {application-name}_install: This function will be executed when you run `appmanager install application-name`
-- {application-name}_run: This function will be executed when you run `appmanager run application-name`
-- {application-name}_uninstall: This function will be executed when you run `appmanager uninstall application-name`
-- {application-name}_upgrade: This function will be executed when you run `appmanager upgrade application-name`
+- `{application-name}_install`: This function will be executed when you run `appmanager install application-name`
+- `{application-name}_run`: This function will be executed when you run `appmanager run application-name`
+- `{application-name}_uninstall`: This function will be executed when you run `appmanager uninstall application-name`
+- `{application-name}_upgrade`: This function will be executed when you run `appmanager upgrade application-name`
 
 Inside this function you have 3 variables related to your application:
 
-- appmng_bin_dir="/opt/bin": the destination for binaries. `/opt/bin` is included in PATH, so a simply symlink here are you're good to go
-- appmng_dest_dir="/opt": the destination folder for your application
-- appmng_app_dir="$appmng_dest_dir/{application-name}": the folder in which your application will be installed. `appmanager` automatically test for existance and create this folder if it doesn't
-- appmng_cli_args: extra command line assed to the run method
+- `appmng_bin_dir="/opt/bin"`: the destination for binaries. `/opt/bin` is included in PATH, so a simply symlink here are you're good to go
+- `appmng_dest_dir="/opt"`: the destination folder for your application
+- `appmng_app_dir="$appmng_dest_dir/{application-name}"`: the folder in which your application will be installed. `appmanager` automatically test for existance and create this folder if it doesn't
+- `appmng_cli_args`: extra command line assed to the run method
 
 ## Libs
 If you need to include a third party library ( in the form of a git repository ) you can use Git submodules.
