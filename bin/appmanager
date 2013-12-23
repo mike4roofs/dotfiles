@@ -85,6 +85,7 @@ if [ $# -eq 0 ]; then
 fi
 
 source $dot_lib/applications.sh
+source $dot_lib/application_helpers.sh
 source $dot_libs/shared/logging.sh
 
 # Access additional arguments as usual through 
