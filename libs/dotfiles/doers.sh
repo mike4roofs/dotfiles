@@ -57,7 +57,7 @@ function do_stuff() {
         backup=1
         
         # Create backup dir if it doesn't already exist.
-        [[ -e "$backup_dir" ]] || mkdir -p "$backup_dir"
+        [[ -d "$backup_dir" ]] || mkdir -p "$backup_dir"
         
         # Backup file / link / whatever.
         mv "$dest" "$backup_dir"
