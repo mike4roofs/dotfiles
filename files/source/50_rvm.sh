@@ -2,9 +2,6 @@
 # RVM
 #------------------------------
 
-PATH=$PATH:$HOME/.rvm/bin
-export PATH
-
 # Autoloading .rvmrc files when found
 [[ -s ".rvmrc" ]] && source ".rvmrc"  # This loads RVM into a shell session.
 
