@@ -4,7 +4,7 @@ echo "Welcome! You are going to install endorama/dotfiles."
 echo "Download is starting..."
 
 if [[ ! -d ~/.dotfiles ]]; then
-  git clone --recursive git://github.com/endorama/dotfiles.git ~/.dotfiles
+  git clone --recursive git@github.com:endorama/dotfiles.git ~/.dotfiles
 else
   echo "A ~/.dotfiles folder already exists, aborting."
 fi
