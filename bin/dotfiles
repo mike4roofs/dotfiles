@@ -25,16 +25,10 @@ source $HOME/.dotfiles/libs/dotfiles/vars.sh
 
 ################################################################################
 # Initialize.
+new_dotfiles_install=0
 
-if [[ ! -d ~/.dotfiles ]]; then
+if [[ ! -d ~/.dotfiles/installed ]]; then
   new_dotfiles_install=1
-
-  # ~/.dotfiles doesn't exist? Clone it!
-  echo "Dotfiles not found. Downloading..."
-
-  git clone --recursive git://github.com/endorama/dotfiles.git ~/.dotfiles
-
-  cd ~/.dotfiles
 else
   # Make sure we have the latest files.
   echo "Dotfiles found. Updating..."
@@ -135,6 +129,8 @@ fi
 if [[ "$new_dotfiles_install" && -e "$dot_folder/conf/first_time.sh" ]]; then
   e_header "First-Time Reminders"
   source "$dot_folder/conf/first_time.sh"
+
+  touch $dot_folder/installed
 fi
 
 ################################################################################
