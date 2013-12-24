@@ -4,7 +4,7 @@ function zshplugins_header() { e_header "Linking Oh My Zsh plugins "; }
 function zshplugins_do() {
   local link_folder plugin
 
-  e_success "Linking plugin $1"
+  e_arrow "Linking plugin $1"
 
   plugin=$dot_files/zshplugins/$1
   link_folder=$dot_folder/libs/oh-my-zsh/custom/plugins/

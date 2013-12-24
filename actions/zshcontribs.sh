@@ -5,7 +5,7 @@ function zshcontribs_do() {
   local contrib=$dot_files/zshcontribs/$1
   local link_folder=$dot_folder/libs/oh-my-zsh/contrib/
 
-  e_success "Linking contribution $1"
+  e_arrow "Linking contribution $1"
 
   if [[ ! -d $link_folder ]]; then
     mkdir $link_folder
