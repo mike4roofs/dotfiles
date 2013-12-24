@@ -126,7 +126,7 @@ fi
 
 ################################################################################
 # Least I forget to do a few additional things...
-if [[ "$new_dotfiles_install" && -e "$dot_folder/conf/first_time.sh" ]]; then
+if [[ $new_dotfiles_install -eq 1 && -e "$dot_folder/conf/first_time.sh" ]]; then
   e_header "First-Time Reminders"
   source "$dot_folder/conf/first_time.sh"
 
