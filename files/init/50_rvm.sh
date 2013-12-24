@@ -1,8 +1,9 @@
 
+source "$HOME/.rvm/scripts/rvm"
+
 if [[ ! "$(type rvm)" ]]; then
   \curl -sSL https://get.rvm.io | bash
 else
-  source "$HOME/.rvm/scripts/rvm"
   rvm get head
 fi
 

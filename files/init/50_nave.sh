@@ -1,4 +1,6 @@
 
+nave use stable
+
 [[ ! "$(type node)" ]] && nave install stable
 [[ ! "$(type npm)" ]] && curl -sSL https://npmjs.org/install.sh | sh
 
