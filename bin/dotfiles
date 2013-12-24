@@ -27,12 +27,12 @@ source $HOME/.dotfiles/libs/dotfiles/vars.sh
 # Initialize.
 new_dotfiles_install=0
 
-if [[ ! -d ~/.dotfiles/installed ]]; then
+if [[ ! -e $HOME/.dotfiles/installed ]]; then
   new_dotfiles_install=1
 else
   # Make sure we have the latest files.
   echo "Dotfiles found. Updating..."
-  cd ~/.dotfiles
+  cd $HOME/.dotfiles
 
   git pull
   git submodule update --init --recursive --quiet
