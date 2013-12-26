@@ -50,3 +50,7 @@ function file_generator() {
 
   dd if=/dev/zero of=output.file bs=$bytes count=1
 }
+
+function clear_cache() {
+  sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"
+}
