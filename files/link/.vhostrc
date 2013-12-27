@@ -1,0 +1,35 @@
+# Configuration file for /usr/bin/newvhost
+#
+#
+
+# Path to the vhosts folder [ NO TRAILING SLASH ]
+apacheconfpath='/home/endorama/vhosts'
+
+# the group of apache webserver ( and you must be in that group )
+web_group="www-data"
+
+# Directory in which apache will save log files [ NO TRAILING SLASH ]
+logdir="/var/log/apache2"
+
+# For symlinking from where files are really stored to the Apache DocRoot
+# The Apache document root
+docroot="/var/www"
+# Where files will be really stored
+localweb="/home/endorama/code/www"
+
+# The first level domain to be applied to all created vhosts
+# default; used if no other is passed through relative flag
+firstleveldomain='.lol' 
+# Server administrator email
+serveradmin="root@workingtunix.com"
+
+# MySQL server access data
+mysqluser="root"
+mysqlpwd="root"
+# A prefix to be added to all database created
+db_prefix=""
+
+# The absolute path to the MySQL executable ( need to create the database )
+mysqlcmd=$(which mysql)
+# The absolute path to the Apache2 executable ( need to restart apache )
+apachecmd="service apache2"
