@@ -6,7 +6,7 @@
 #------------------------------------------------------------------#
 
 # Add binaries into the path
-PATH=$HOME/.rvm/bin:~/.dotfiles/bin:~/opt/bin:$PATH
+PATH=$PATH:~/opt/bin:~/.dotfiles/bin:$HOME/.rvm/bin
 export PATH
 
 # Source all files in ~/.dotfiles/source/
