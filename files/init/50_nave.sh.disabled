@@ -11,11 +11,11 @@ else
 fi
 
 if [[ "$(type npm)" ]]; then
-  npm install -g yo &> /dev/null
-  npm install -g bower &> /dev/null
-  npm install -g grunt-cli &> /dev/null
-  npm install -g linken &> /dev/null
-  npm install -g node-inspector &> /dev/null
+  [[ "$(type yo)" ]] || npm install -g yo &> /dev/null
+  [[ "$(type bower)" ]] || npm install -g bower &> /dev/null
+  [[ "$(type grunt-cli)" ]] || npm install -g grunt-cli &> /dev/null
+  [[ "$(type linken)" ]] || npm install -g linken &> /dev/null
+  [[ "$(type node-inspector)" ]] || npm install -g node-inspector &> /dev/null
 else
   e_error "NPM is not installed for unknown reason"
 fi
