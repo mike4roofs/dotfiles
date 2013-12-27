@@ -1,11 +1,6 @@
 # Set vars.
 # All this variables must be set for correct execution
 
-#  Calc path to dotfiles folder based on the relative position of the dotfiles
-#+ executable
-# export dot_root_path=$(dirname $(dirname $0))
-dot_root_path="$HOME/.dotfiles"
-
 # dotfiles main folder
 export dot_folder=$dot_root_path
 # dotfiles action files folder

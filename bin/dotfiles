@@ -18,8 +18,12 @@ fi
 
 ################################################################################
 # Set vars.
-# source $(dirname $(dirname $0))/libs/dotfiles/vars.sh
-source $HOME/.dotfiles/libs/dotfiles/vars.sh
+#  Calc path to dotfiles folder based on the relative position of the dotfiles
+#+ executable ( for development )
+# dot_root_path=$(dirname $(dirname $0))
+dot_root_path="$HOME/.dotfiles"
+
+source $dot_root_path/libs/dotfiles/vars.sh
 
 # Enough with the functions, let's do stuff.
 
