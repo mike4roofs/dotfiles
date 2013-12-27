@@ -1,6 +1,10 @@
 # Initialize.
 function init_header() { e_header "Sourcing initialization files"; }
 
+function init_files() {
+  echo "*.sh"
+}
+
 function init_do() {
   e_arrow "Sourcing files/init/$(basename $2)"
   source "$2"
