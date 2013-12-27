@@ -6,9 +6,8 @@
 #       $1_header, $1_test, $1_do
 
 function do_stuff() {
-  local action action_name base dest skip
-  local files=($dot_files/$1/*.sh)
-
+  local action action_name base dest files skip
+  
   source $dot_lib/actions.sh
   add_action $1
 
@@ -19,7 +18,12 @@ function do_stuff() {
     return
   fi
 
-  # echo "$1_do"
+  # load files based on action definition
+  if [[ $(declare -f "$1_files") ]]; then
+    files=($dot_files/$1/$("$1_files"))
+  else
+    files=($dot_files/$1/*)
+  fi
 
   # No files? abort.
   if (( ${#files[@]} == 0 )); then
