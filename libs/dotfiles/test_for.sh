@@ -20,7 +20,7 @@ function test_for_command() {
   hash $cmd 2>/dev/null
   not_found=$?
 
-  e_header "Test for $1"
+  e_header "Test for $name"
 
   # if command is found :)
   if [[ $not_found -eq 0 ]]; then
@@ -30,7 +30,7 @@ function test_for_command() {
     e_arrow "Trying to install missing command $name"
 
     # check for $1_installer, and execute it if found
-    [[ $(declare -f "$1_installer") ]] && "$1_installer"
+    [[ $(declare -f "${cmd//-/_}_installer") ]] && "${cmd//-/_}_installer"
     
     # check if cmd exists ( in PATH see `man hash` )
     hash $cmd 2>/dev/null
