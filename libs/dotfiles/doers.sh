@@ -7,7 +7,7 @@
 
 function do_stuff() {
   local action action_name base dest skip
-  local files=($dot_files/$1/*)
+  local files=($dot_files/$1/*.sh)
 
   source $dot_lib/actions.sh
   add_action $1
