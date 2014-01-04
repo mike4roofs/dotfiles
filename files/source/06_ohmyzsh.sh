@@ -49,4 +49,4 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 source $ZSH/oh-my-zsh.sh
 
 # Contributed codes
-source $ZSH/contrib/git-prompt/zshrc.sh
+source $ZSH/custom/git-prompt/zshrc.sh

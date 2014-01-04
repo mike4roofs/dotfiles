@@ -3,7 +3,7 @@ function zshcontribs_header() { e_header "Linking Oh My Zsh contributions "; }
 
 function zshcontribs_do() {
   local contrib=$dot_files/zshcontribs/$1
-  local link_folder=$dot_folder/libs/oh-my-zsh/contrib/
+  local link_folder=$dot_folder/libs/oh-my-zsh/custom/
 
   e_arrow "Linking contribution $1"
 
