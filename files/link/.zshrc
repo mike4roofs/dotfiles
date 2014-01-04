@@ -28,5 +28,3 @@ function dotfiles() {
 }
 
 src
-
-nave use stable
