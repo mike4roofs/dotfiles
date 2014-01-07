@@ -40,6 +40,9 @@ else
 
   git pull
   git submodule update --init --recursive --quiet
+
+  # update composer
+  bash -c "cd libs/composer && php bin/composer install > /dev/null"
 fi
 
 source $dot_lib/doers.sh
