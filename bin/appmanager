@@ -31,9 +31,12 @@ function usage() {
 # Set vars.
 
 # source $(dirname $(dirname $0))/libs/dotfiles/vars.sh
-source $HOME/.dotfiles/libs/dotfiles/vars.sh
 
-source $dot_lib/vars.sh
+dot_root_path="$HOME/.dotfiles"
+source $dot_root_path/libs/dotfiles/vars.sh
+
+appmng_lib=$dot_libs/appmanager
+source $appmng_lib/vars.sh
 
 # Enough with the settings, let's do stuff.
 
@@ -65,8 +68,8 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-source $dot_lib/applications.sh
-source $dot_lib/application_helpers.sh
+source $appmng_lib/applications.sh
+source $appmng_lib/application_helpers.sh
 source $dot_libs/shared/logging.sh
 
 # Access additional arguments as usual through 
