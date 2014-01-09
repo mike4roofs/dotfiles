@@ -12,3 +12,6 @@ files/link/.ssh/*
 
 # ignore flag for detect installation
 installed
+
+# ignore local files
+locals/*
