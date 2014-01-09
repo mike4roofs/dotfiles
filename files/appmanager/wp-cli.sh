@@ -14,6 +14,7 @@ function wp_cli_install() {
   
   _wp_cli_download
 
+  chmod +x $appmng_app_dir/phar/wp-cli.phar
   ln -s $appmng_app_dir/phar/wp-cli.phar $appmng_bin_dir/wp
 
   e_success "Done"
