@@ -36,11 +36,6 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
-# Fast directory switching
-_Z_NO_PROMPT_COMMAND=1
-_Z_DATA=~/.dotfiles/caches/.z
-. ~/.dotfiles/libs/z/z.sh
-
 # $1: dimension in byte
 function file_generator() {
   # bytes=$(/opt/bconv.sh $1 MB b)
