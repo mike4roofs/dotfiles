@@ -48,3 +48,6 @@ alias webpython="python -m SimpleHTTPServer"
 
 # nautilus
 alias n="nautilus ."
+
+# touch
+alias t="touch"
