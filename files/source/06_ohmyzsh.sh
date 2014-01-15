@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
  apt bundler colorize command-not-found cp encode64 extract git 
  git-extras github history-substring-search npm ssh-agent rake rails rvm 
- sublime web-search wp-cli
+ sublime web-search wp-cli z
 )
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
