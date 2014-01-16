@@ -39,7 +39,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
  apt bundler colorize command-not-found cp encode64 extract git 
- git-extras github history-substring-search npm ssh-agent rake rails rvm 
+ git-extras github history-substring-search nave npm ssh-agent rake rails rvm 
  sublime web-search wp-cli z
 )
 
