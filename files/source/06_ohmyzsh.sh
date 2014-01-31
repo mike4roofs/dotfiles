@@ -38,9 +38,10 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
- apt bundler colorize command-not-found cp encode64 extract git 
- git-extras github history-substring-search nave npm ssh-agent rake rails rvm 
- sublime web-search wp-cli z
+  bundler colorize command-not-found cp encode64 extract git 
+  git-extras github history-substring-search npm ssh-agent rake rails rvm 
+  sublime web-search z
+  apt nave wp-cli
 )
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
