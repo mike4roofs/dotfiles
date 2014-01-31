@@ -47,7 +47,7 @@ function is_application() {
 }
 
 function install_application() {
-  [[ -e $appmng_app_dir ]] && e_abort "Application alredy installed" 1
+  [[ -e $appmng_app_dir ]] && e_abort "Application already installed" 1
   _do_action 'install' $1
 }
 
