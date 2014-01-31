@@ -4,6 +4,7 @@ function e_success()  { echo -e "  \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e "  \033[1;31m✖\033[0m  $@"; }
 function e_warn()     { echo -e "  \033[1;33m  $@\033[0m"; }
 function e_arrow()    { echo -e "  \033[1;33m➜\033[0m  $@"; }
+function e_message()  { echo -e "$@"; }
 
 function e_ok()       { e_success "ok"; }
 # $1 => error message, $2 => exit code
