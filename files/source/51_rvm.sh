@@ -2,8 +2,8 @@
 # RVM
 #------------------------------
 
-hash rvm 2>/dev/null
-if [[ $? -eq 0 ]]; then
+# check for rvm presence
+if [[ -d $HOME/.rvm/bin ]]; then
   # rvm needs to be loaded last in the PATH
   export PATH=$PATH:$HOME/.rvm/bin
 fi
