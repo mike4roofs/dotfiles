@@ -36,7 +36,7 @@ alias swapclean="sudo swapoff -a && sudo swapon -a"
 alias update-font-cache="fc-cache -fv"
  
 # git shortcuts
-alias git="hub"
+function git() { hub $@; } # to permit autocomplete
 alias gt="git"
 alias g="git"
 
