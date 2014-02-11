@@ -2,7 +2,7 @@
 function rvm_install() {
   e_header "Installing rvm"  
   
-  \curl -sSL https://get.rvm.io | bash -- --ignore-dotfiles
+  \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
 
   e_success "Done"
 }
