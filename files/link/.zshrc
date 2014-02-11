@@ -6,7 +6,7 @@
 #------------------------------------------------------------------#
 
 # Add binaries into the path
-export PATH=$PATH:/opt/bin:$HOME/.dotfiles/bin:$HOME/.rvm/bin
+export PATH=$PATH:/opt/bin:$HOME/.dotfiles/bin
 
 # Source all files in ~/.dotfiles/source/
 function src() {
