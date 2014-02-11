@@ -22,7 +22,7 @@ alias ssh="nocorrect ssh"
 alias trash="nocorrect trash"
 
 # ls alias
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --group-directories-first"
 alias la="ls -Alh"
 alias lag="ls -Alh | grep"
 
