@@ -41,7 +41,7 @@ plugins=(
   bundler colorize command-not-found cp encode64 extract git 
   git-extras github history-substring-search npm ssh-agent rake rails rvm 
   sublime web-search z
-  apt nvm wp-cli
+  apt wp-cli
 )
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
