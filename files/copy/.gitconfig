@@ -6,7 +6,7 @@
   amend = commit --amend --no-edit
   ap = add -p
   br = branch
-  bra = branch -a
+  bra = branch -av
   brd = branch -d
   cd = diff --cached
   ci = commit
@@ -22,17 +22,22 @@
   lgs = log --oneline --decorate --stat --graph
   ls = ls-files
   mg = merge --no-ff
-  ps = push origin
+  ps = push
   psf = push -f origin
+  pso = push origin
   pst = push --tags
   psu = push -u origin
   r = reset
   rb = rebase
   rbi = rebase --interactive
   rbc = rebase --continue
+  rbs = rebase --skip
   rmc = rm --cached
   rv = checkout --
   sh = stash
+  shl = stash list
+  shs = stash save
+  shp = stash pop
   st = status -sb
   stc = status -sb -uno
   t = for-each-ref --sort=committerdate --format='%(refname:short)' refs/tags
