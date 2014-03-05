@@ -11,3 +11,6 @@ if [[ $? -eq 0 ]]; then
   else
   fi
 fi
+
+# add local composer bin folder to PATH
+export PATH=$PATH:./vendor/bin
