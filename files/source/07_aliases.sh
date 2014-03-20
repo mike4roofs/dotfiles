@@ -1,6 +1,8 @@
 ## SECURITY CONTROL ON `rm`
 # [ Promt on deleting more than 3 files or with recursion ]
 alias rm="rm -I"
+# [ use trash-cli instead of rm! Move files to trash ]
+alias rm="trash"
 
 # config file shortcuts
 alias zshconfig="vim ~/.zshrc"
