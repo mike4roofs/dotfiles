@@ -38,9 +38,7 @@ function md() {
 
 # $1: dimension in byte
 function file_generator() {
-  # bytes=$(/opt/bconv.sh $1 MB b)
-  bytes=$(echo $bytes | cut -d " " -f 4)
-
+  local bytes=$1
   echo "creating a file of $bytes bytes in output.file"
 
   dd if=/dev/zero of=output.file bs=$bytes count=1
