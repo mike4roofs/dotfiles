@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python $HOME"/.dotfiles/libs/magnet-to-torrent/Magnet_To_Torrent2.py" $@
